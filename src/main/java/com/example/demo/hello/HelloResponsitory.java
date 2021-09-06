@@ -16,7 +16,7 @@ public class HelloResponsitory {
 		
 		//SELECT文
 		String query = "SELECT * "
-			+ "FROM employee,"
+			+ "FROM employee"
 			+ "WHERE id=?";
 		
 		//検索実行
