@@ -1,2 +1,6 @@
-master>develop>dev-test1
+master>develop>dev-test1　dev-test1をいじる　->developにマージ　masterはいじらない
               >dev-test2
+              
+ 9/6 eror発生中
+ Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2m2021-09-06 10:18:52.681[0;39m [31mERROR[0;39m [35m21718[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
