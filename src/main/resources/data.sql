@@ -25,3 +25,12 @@ INSERT INTO m_department(
  , (2,'営業部')
  ;
  
+ /*給料テーブル*/
+ INSERT INTO t_salary(
+  user_id
+  , year_month
+  , salary
+  ) VALUES
+  ('user@co.jp', '2020/11', 280000)
+  , ('user@co.jp', '2020/12',290000)
+ 
