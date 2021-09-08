@@ -2,9 +2,13 @@ package com.example.demo.hello;
 
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import com.example.demo.hello.domain.user.entity.IdSearch;
+import com.example.demo.hello.domain.user.service.IdserachRequest;
 
 @Repository
 public class HelloResponsitory {
@@ -24,5 +28,8 @@ public class HelloResponsitory {
 		
 		return employee;
 	}
-
+	@Mapper
+	public interface UserMapper{
+		IdSearch search(IdserachRequest id);
+	}
 }
