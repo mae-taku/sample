@@ -28,17 +28,6 @@ public class HelloController {
 		return "hello/response";
 	}
 	
-	@PostMapping("/hello/db")
-	public String postDbRequest(@RequestParam("text2")String id, Model model) {
-		//1件検索
-	Employee employee = service.getEmployee(id);
-	
-	//検索結果をModelに登録
-	model.addAttribute("employee", employee);
-	
-	//db.htmlに画面遷移
-	return "hello/db";
-	}
 	//Mapper検索
 	@PostMapping("/hello/db2")
 	public String postDbRequest1(@RequestParam("text3")String id, Model model) {
