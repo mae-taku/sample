@@ -5,6 +5,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.hello.HelloResponsitory.UserMapper;
+import com.example.demo.hello.domain.user.entity.IdSearch;
+import com.example.demo.hello.domain.user.service.IdserachRequest;
+
 @Service
 public class HelloService {
 	
@@ -27,5 +31,11 @@ public class HelloService {
 		employee.setEmployeeAge(age);
 	
 		return employee;	
+	}
+	@Autowired
+	private UserMapper UserMapper;
+	
+	public IdSearch search(IdserachRequest idserachRequest){
+		return UserMapper.search(idserachRequest);
 	}
 }
