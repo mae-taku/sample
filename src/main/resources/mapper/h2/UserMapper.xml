@@ -5,7 +5,26 @@
 <mapper namespase="com.example.demo.hello.repository.Usermapper">
 
 <!-- ユーザー1件登録 -->
-<select id="seach" resultType="com.example.demo.hello.domain.user.entity.IdSearch">
-	SELECT * FROM employee WHERE id = #{id}
-	</select>
+<insert id="inserOne">
+	insert int m_user(
+	 user_id
+	 , password
+	 , user_name
+	 , birthday
+	 , age
+	 , gender
+	 , department_id
+	 , role
+	)
+	values(
+	 #(userId)
+	 , #(password)
+	 , #(user_name)
+	 , #(birthday)
+	 , #(age)
+	 , #(gender)
+	 , #(department_id)
+	 , #(role)
+	 )
+	</insert>
 </mapper>>

@@ -28,6 +28,7 @@ public class HelloController {
 		return "hello/response";
 	}
 	
+<<<<<<< dev-test4
 	//Mapper検索
 	@PostMapping("/hello/db2")
 	public String postDbRequest1(@RequestParam("text3")String id, Model model) {
@@ -39,5 +40,17 @@ public class HelloController {
 	
 	//db.htmlに画面遷移
 	return "hello/db2";
+=======
+	@PostMapping("/hello/db")
+	public String postDbRequest(@RequestParam("text2")String id, Model model) {
+		//1件検索
+	Employee employee = service.getEmployee(id);
+	
+	//検索結果をModelに登録
+	model.addAttribute("employee", employee);
+	
+	//db.htmlに画面遷移
+	return "hello/db";
+>>>>>>> bc9e68d MybatisによるSELECT文を追加。
 	}
 }
