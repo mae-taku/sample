@@ -1,23 +1,17 @@
 package com.example.demo.hello;
 
-<<<<<<< dev-test4
-import org.apache.ibatis.annotations.Mapper;
-=======
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
->>>>>>> bc9e68d MybatisによるSELECT文を追加。
 import org.springframework.stereotype.Repository;
+
+import com.example.demo.hello.domain.user.entity.IdSearch;
+import com.example.demo.hello.domain.user.service.IdserachRequest;
 
 @Repository
 public class HelloResponsitory {
-<<<<<<< dev-test4
-	@Mapper
-	public interface UserMapper{
-		IdSearch search(IdserachRequest id);
-	}
-=======
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -34,6 +28,8 @@ public class HelloResponsitory {
 		
 		return employee;
 	}
-
->>>>>>> bc9e68d MybatisによるSELECT文を追加。
+	@Mapper
+	public interface UserMapper{
+		IdSearch search(IdserachRequest id);
+	}
 }
