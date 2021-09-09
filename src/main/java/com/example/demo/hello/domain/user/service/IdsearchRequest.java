@@ -5,7 +5,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 @Data
-public class IdserachRequest implements Serializable{
+public class IdsearchRequest implements Serializable{
 	private Long id;
 
 }

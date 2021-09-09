@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.hello.HelloResponsitory.UserMapper;
 import com.example.demo.hello.domain.user.entity.IdSearch;
-import com.example.demo.hello.domain.user.service.IdserachRequest;
+import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 @Service
 public class HelloService {
@@ -35,7 +35,7 @@ public class HelloService {
 	@Autowired
 	private UserMapper UserMapper;
 	
-	public IdSearch search(IdserachRequest idserachRequest){
-		return UserMapper.search(idserachRequest);
+	public IdSearch search(IdsearchRequest idsearchRequest){
+		return UserMapper.search(idsearchRequest);
 	}
 }

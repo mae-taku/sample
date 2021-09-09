@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.hello.domain.user.entity.IdSearch;
-import com.example.demo.hello.domain.user.service.IdserachRequest;
+import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 @Repository
 public class HelloResponsitory {
@@ -30,6 +30,6 @@ public class HelloResponsitory {
 	}
 	@Mapper
 	public interface UserMapper{
-		IdSearch search(IdserachRequest id);
+		IdSearch search(IdsearchRequest id);
 	}
 }
