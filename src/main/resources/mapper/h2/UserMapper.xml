@@ -5,7 +5,7 @@
 <mapper namespase="com.example.demo.hello.repository.Usermapper">
 
 <!-- ユーザー1件登録 -->
-<select id="seach" resultType="com.example.demo.hello.domain.user.entity.IdSearch">
+	<select id="seach" resultType="com.example.demo.hello.domain.user.entity.IdSearch">
 	SELECT * FROM employee WHERE id = #{id}
 	</select>
 </mapper>>

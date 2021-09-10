@@ -28,8 +28,11 @@ public class HelloResponsitory {
 		
 		return employee;
 	}
+	
+	
 	@Mapper
 	public interface UserMapper{
 		IdSearch search(IdsearchRequest id);
 	}
+	
 }

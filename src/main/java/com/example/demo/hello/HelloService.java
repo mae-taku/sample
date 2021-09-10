@@ -9,6 +9,7 @@ import com.example.demo.hello.HelloResponsitory.UserMapper;
 import com.example.demo.hello.domain.user.entity.IdSearch;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
+
 @Service
 public class HelloService {
 	
@@ -33,9 +34,10 @@ public class HelloService {
 		return employee;	
 	}
 	@Autowired
-	private UserMapper UserMapper;
+	private UserMapper userMapper;
 	
 	public IdSearch search(IdsearchRequest idsearchRequest){
-		return UserMapper.search(idsearchRequest);
+		return userMapper.search(idsearchRequest);
 	}
+
 }

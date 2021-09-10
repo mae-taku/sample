@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.hello.HelloResponsitory.UserMapper;
+import com.example.demo.hello.domain.user.entity.IdSearch;
+import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 /**
  * @author maetaku
@@ -43,9 +44,9 @@ public class HelloController {
 	}
 	//Mapper検索
 	@PostMapping("/hello/db2")
-	public String postDbRequest1(@RequestParam("text3")String id, Model model) {
+	public String postDbRequest1(@RequestParam("text3")IdsearchRequest idsearchRequest, Model model) {
 	//1件検索
-	 UserMapper search = HelloService.search(idsearchRequest);
+	 IdSearch search = service.search(idsearchRequest);
 	//検索結果をModelに登録
 	model.addAttribute("searchOne", search);
 	

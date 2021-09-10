@@ -1,0 +1,20 @@
+9/9 エラーログ
+ApplicationContextの起動中にエラーが発生しました。 状態レポートを表示するには、「デバッグ」を有効にしてアプリケーションを再実行します。
+[2m2021-09-09 12：42：05.031 [0; 39m [31mERROR [0; 39m [35m4229 [0; 39m [2m --- [0; 39m [2m [restartedMain] [0; 39m [36mo.sbdLoggingFailureAnalysisReporter [0; 39m [2m：[0; 39m
+
+***************************
+アプリケーションを開始できませんでした
+***************************
+
+説明：
+
+com.example.demo.hello.HelloServiceのフィールドUserMapperには、タイプ 'com.example.demo.hello.HelloResponsitory $ UserMapper'のBeanが必要でしたが見つかりませんでした。
+
+注入ポイントには、次の注釈があります。
+-@ org.springframework.beans.factory.annotation.Autowired（required = true）
+
+
+アクション：
+
+構成でタイプ 'com.example.demo.hello.HelloResponsitory $ UserMapper'のBeanを定義することを検討してください。 
+ApplicationContext no kidō-chū ni erā ga hassei shimashita. Jōtai repōto o hyōji suru ni wa,`debaggu' o yūkō ni shite apurikēshon o sai jikkō shimasu. [2 M 2021 - 09 - 09 12: 42: 05. 031 [0 ; 39 M [31 mERROR [0 ; 39 m [35 m 4229 [0 ; 39 m [2 m -- - [0 ; 39 m [2 m [restartedMain] [0 ; 39 m [36 mo. S b d L o g g i ngFailureAnalysisReporter [0 ; 39 m [2 m: [0 ; 39 M* * ************************* apurikēshon o kaishi dekimasendeshita* * ************************* setsumei: Komu. Example. Demo. Hello. HelloService no fīrudo UserMapper ni wa, taipu' komu. Example. Demo. Hello. HelloResponsitory $ UserMapper' no bīn ga hitsuyōdeshitaga mitsukarimasendeshita. Chūnyū pointo ni wa,-ji no chūshaku ga arimasu. - @ Orugu. Springframework. Beans. Factory. Annotation. Autowired (required = tsurū) akushon: Kōsei de taipu' komu. Example. Demo. Hello. HelloResponsitory $ UserMapper' no bīn o teigi suru koto o kentō shite kudasai.
