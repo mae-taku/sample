@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.hello.domain.user.entity.IdSearch;
@@ -43,14 +46,19 @@ public class HelloController {
 	return "hello/db";
 	}
 	//Mapper検索
-	@PostMapping("/hello/db2")
-	public String postDbRequest1(@RequestParam("text3")IdsearchRequest idsearchRequest, Model model) {
-	//1件検索
-	 IdSearch search = service.search(idsearchRequest);
-	//検索結果をModelに登録
-	model.addAttribute("searchOne", search);
-	
-	//db.htmlに画面遷移
-	return "hello/db2";
+		//@PostMapping("/hello/db2")
+		//public String postDbRequest1(@RequestParam("text3")IdsearchRequest idsearchRequest, Model model) {
+		//1件検索
+		// IdSearch search = service.search(idsearchRequest);
+		//検索結果をModelに登録
+		//model.addAttribute("searchOne", search);
+		
+		//db.htmlに画面遷移
+		//return "hello/db2";
+	 @RequestMapping(value = "/hello/db2", method = RequestMethod.POST)
+	  public String search(@ModelAttribute IdsearchRequest idsearchRequest, Model model) {
+	    IdSearch idSearch = service.search(idsearchRequest);
+	    model.addAttribute("searchOne", idSearch);
+	    return "hello/db2";
 	}
 }
