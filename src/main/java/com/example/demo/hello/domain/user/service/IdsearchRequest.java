@@ -8,6 +8,6 @@ import lombok.Data;
 
 @Data
 public class IdsearchRequest implements Serializable{
-	private Long id;
+	private int id;
 
 }
