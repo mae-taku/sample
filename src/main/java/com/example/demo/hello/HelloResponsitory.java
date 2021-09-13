@@ -3,6 +3,7 @@ package com.example.demo.hello;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -32,6 +33,7 @@ public class HelloResponsitory {
 	
 	@Mapper
 	public interface UserMapper{
+		@Select("SELECT * FROM empolyee WHERE id = #{id}")
 		IdSearch search(IdsearchRequest id);
 	}
 	
