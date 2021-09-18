@@ -2,13 +2,9 @@ package com.example.demo.hello;
 
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import com.example.demo.hello.domain.user.entity.IdSearch;
-import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 @Repository
 public class HelloResponsitory {
@@ -30,10 +26,5 @@ public class HelloResponsitory {
 	}
 	
 	
-	@Mapper
-	public interface UserMapper{
-		//@Select("SELECT * FROM empolyee WHERE id = #{id}")
-		IdSearch search(IdsearchRequest id);
-	}
 	
 }

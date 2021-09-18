@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- Mppperとxmlのマッピング -->
-<mapper namespace="com.example.demo.hello.HelloResponsitory.UserMapper">
+<mapper namespace="com.example.demo.hello.UserMapper">
 <!-- ユーザー1件登録 -->
 	<select id="search" resultType="com.example.demo.hello.domain.user.entity.IdSearch">
 	SELECT * FROM employee WHERE id = #{id}

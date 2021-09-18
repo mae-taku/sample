@@ -5,7 +5,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.hello.HelloResponsitory.UserMapper;
 import com.example.demo.hello.domain.user.entity.IdSearch;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
