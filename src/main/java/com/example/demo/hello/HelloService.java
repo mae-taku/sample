@@ -13,7 +13,7 @@ import com.example.demo.hello.domain.user.service.IdsearchRequest;
 public class HelloService {
 	
 	@Autowired
-	private HelloResponsitory repository;
+	private HelloRepository repository;
 	/**従業員を1人取得する*/
 	public Employee getEmployee(String id) {
 		//検索
