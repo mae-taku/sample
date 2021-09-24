@@ -2,11 +2,13 @@
 <html xmlns:th="http//www.thymeleaf.org">
 <head>
  <meta charset="UTF-8"></meta>
- <title>Order Todo</title>
+ <title>登録画面</title>
 </head>
 <body>
  <form method="post" action="/hello/db2">
- Todo:<input type="text" name="id" th:object="${IdsearchRequest}"/>
+ ID:<input type="text" name="id" th:object="${IdSearch}"/>
+ name:<input type="text" name="name" th:object="${IdSearch}"/>
+ age:<input type="text" name="age" th:object="${IdSearch}"/>
  <input type="submit" value="クリック">
  </form>
 
