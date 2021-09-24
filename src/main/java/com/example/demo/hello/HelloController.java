@@ -44,15 +44,15 @@ public class HelloController {
 	return "hello/db";
 	}
 	//Mapper検索
-		@PostMapping("/hello/db2")
-		public String postDbRequest1(@ModelAttribute IdsearchRequest idsearchRequest, Model model) {
-		//1件検索
-		 IdSearch idSearch = service.search(idsearchRequest);
-		//検索結果をModelに登録
-		model.addAttribute("searchOne", idSearch);
-		
-		//db.htmlに画面遷移
-		return "hello/db2";
+	@PostMapping("/hello/db2")
+	public String postDbRequest1(@ModelAttribute IdsearchRequest idsearchRequest, Model model) {
+	//1件検索
+	 IdSearch idSearch = service.search(idsearchRequest);
+	//検索結果をModelに登録
+	model.addAttribute("searchOne", idSearch);
+	
+	//db.htmlに画面遷移
+	return "hello/db2";
 //	 @RequestMapping(value = "/hello/db2", method = RequestMethod.POST)
 //	  public String search(@ModelAttribute IdsearchRequest idsearchRequest, Model model) {
 //		 IdsearchRequest sampleId = new IdsearchRequest();
