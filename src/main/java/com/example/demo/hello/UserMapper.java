@@ -9,4 +9,6 @@ import com.example.demo.hello.domain.user.service.IdsearchRequest;
 public interface UserMapper{
 	//@Select("SELECT * FROM empolyee WHERE id = #{id}")
 	IdSearch search(IdsearchRequest id);
+	
+	IdSearch order(IdSearch NewId);
 }

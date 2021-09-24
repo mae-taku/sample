@@ -38,5 +38,9 @@ public class HelloService {
 	public IdSearch search(IdsearchRequest idsearchRequest){
 		return userMapper.search(idsearchRequest);
 	}
+	
+	public IdSearch order(IdSearch NewId){
+		return userMapper.order(NewId);
+	}
 
 }
