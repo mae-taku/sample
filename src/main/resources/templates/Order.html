@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8"></meta>
+ <title>Order Todo</title>
+</head>
+<body>
+ <form method="post" action="/hello/db2">
+ Todo:<input type="text" name="id" th:object="${IdsearchRequest}"/>
+ <input type="submit" value="クリック">
+ </form>
+
+</body>
+</html>
