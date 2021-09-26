@@ -1,4 +1,4 @@
-package com.example.demo.hello;
+package com.example.demo.hello.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.hello.Employee;
+import com.example.demo.hello.HelloService;
 import com.example.demo.hello.domain.user.entity.IdSearch;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
@@ -62,4 +64,8 @@ public class HelloController {
 //	    model.addAttribute("searchOne", idSearch);
 //	    return "hello/db2";
 	}
+//	@GetMapping("hello/employeeList")
+//	public String getemployeeList() {
+//	 return "hello/employeeList";
+//	}
 }
