@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Employee List</title>
+	<meta charset="UTF-8"></meta>
+	<title>Employee List</title>
 </head>
 <body>
-employeeList
+	<h1>EmployeeList</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>age</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="searchOne : $(idsearchRequest)">
+				<th>id</th>
+				<th>name</th>
+				<th>age</th>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
