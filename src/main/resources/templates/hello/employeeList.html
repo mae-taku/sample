@@ -33,5 +33,9 @@
 			</tr>
 		</tbody>
 	</table>
+	<form method="post" action="/hello/db2">
+		ID検索:<input type="text" name="id" th:object="${IdsearchRequest}" />
+		<input type="submit" value="検索">
+	</form>
 </body>
 </html>
