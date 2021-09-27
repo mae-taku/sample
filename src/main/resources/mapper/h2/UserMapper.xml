@@ -8,8 +8,21 @@
 	<select id="selectAll" resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
 		SELECT * FROM employee 
 	</select>
-<!-- ユーザー1件登録 -->
+<!-- ユーザー1件検索 -->
 	<select id="search" resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
 		SELECT * FROM employee WHERE id = #{id}
 	</select>
+<!-- ユーザー1件登録 -->
+	<insert id="insert">
+	INSERT INTO employee(
+	id
+	, name
+	, age
+	)
+	values (
+	#{id}
+	, #{name}
+	, #{age}
+	)
+	</insert>
 </mapper>

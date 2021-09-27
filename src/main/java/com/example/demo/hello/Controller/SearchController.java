@@ -26,6 +26,7 @@ public class SearchController {
 		m.addAttribute("selectAll", selectAll);
 		return "hello/employeeList";
 	}
+	
 //	READ
 	//Mapper検索
 	@PostMapping("/hello/db2")
@@ -34,12 +35,24 @@ public class SearchController {
 		EmployeeId idSearch = service.search(idsearchRequest);
 		//検索結果をModelに登録
 		model.addAttribute("searchOne", idSearch);
-
 		//db.htmlに画面遷移
 		return "hello/db2";
 	}
+	
 //	CREAT
-//	UODATE
+	@GetMapping("hello/employeeForm") //list -> newボタン
+	public String NewEmployee(Model m, @ModelAttribute EmployeeId n) {
+		//newボタンを押されるとここを通る
+		return "hello/employeeForm";
+	}
+	@PostMapping("hello/employeeForm")
+	public String create(@ModelAttribute EmployeeId n) {
+		System.out.println(n);
+		service.insert(n);
+		return "redirect:/hello/employeeList";
+		}
+	
+	//	UODATE
 //	DEALETE
 	
 }

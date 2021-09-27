@@ -47,5 +47,8 @@ public class HelloService {
 	public EmployeeId search(IdsearchRequest idsearchRequest){
 		return userMapper.search(idsearchRequest);
 	}
-
+//　登録
+	public void insert(EmployeeId newone) {
+		userMapper.insert(newone);
+		}
 }
