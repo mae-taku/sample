@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.hello.Employee;
 import com.example.demo.hello.HelloService;
-import com.example.demo.hello.domain.user.entity.IdSearch;
+import com.example.demo.hello.domain.Employee;
+import com.example.demo.hello.domain.user.entity.EmployeeId;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 /**
@@ -49,7 +49,7 @@ public class HelloController {
 	@PostMapping("/hello/db2")
 	public String postDbRequest1(@ModelAttribute IdsearchRequest idsearchRequest, Model model) {
 	//1件検索
-	 IdSearch idSearch = service.search(idsearchRequest);
+	 EmployeeId idSearch = service.search(idsearchRequest);
 	//検索結果をModelに登録
 	model.addAttribute("searchOne", idSearch);
 	

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
 <head>
 	<meta charset="UTF-8"></meta>
 	<title>Employee List</title>
 </head>
 <body>
 	<h1>EmployeeList</h1>
-	<table class="table">
+	<a th:href="@{/employees/new}"></a>
+		<button>従業員登録</button>
+	<table border="1">
 		<thead>
 			<tr>
 				<th>id</th>
@@ -15,10 +19,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="searchOne : $(idsearchRequest)">
-				<th>id</th>
-				<th>name</th>
-				<th>age</th>
+			<!-- each;DBの情報をすべて出すまで繰り返す -->
+			<tr th:each="All : ${selectAll}" th:object="${All}">
+<!-- 		 ${selectAll}から1件ずつ取り出し、All変数に格納。
+			th:object フォームにバインドするオブジェクトを設定。->オブジェクト名を省略できる。
+			使わない場合は、
+			<tr th:each="All : ${selectAll}">
+				<td th:text="${All.id}"></td> -->
+				<td th:text="*{id}"></td>
+				<td th:text="*{name}"></td>
+				<td th:text="*{age}"></td>
+				
 			</tr>
 		</tbody>
 	</table>

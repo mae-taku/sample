@@ -1,12 +1,15 @@
 package com.example.demo.hello;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.hello.domain.user.entity.IdSearch;
+import com.example.demo.hello.domain.Employee;
+import com.example.demo.hello.domain.user.entity.EmployeeId;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
+
 
 
 @Service
@@ -35,7 +38,13 @@ public class HelloService {
 	@Autowired
 	private UserMapper userMapper;
 	
-	public IdSearch search(IdsearchRequest idsearchRequest){
+//	全件検索
+	public List<EmployeeId> selectAll(){
+		return userMapper.selectAll();
+	}
+	
+//	1件検索
+	public EmployeeId search(IdsearchRequest idsearchRequest){
 		return userMapper.search(idsearchRequest);
 	}
 
