@@ -47,7 +47,6 @@ public class SearchController {
 	}
 	@PostMapping("hello/employeeForm")
 	public String create(@ModelAttribute EmployeeId n) {
-		System.out.println(n);
 		service.insert(n);
 		return "redirect:/hello/employeeList";
 		}
