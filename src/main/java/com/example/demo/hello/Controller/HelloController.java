@@ -42,7 +42,7 @@ public class HelloController {
 	//db.htmlに画面遷移
 	return "hello/db";
 	}
-
+	//Mapper検索
 //	 @RequestMapping(value = "/hello/db2", method = RequestMethod.POST)
 //	  public String search(@ModelAttribute IdsearchRequest idsearchRequest, Model model) {
 //		 IdsearchRequest sampleId = new IdsearchRequest();
@@ -51,4 +51,5 @@ public class HelloController {
 //	    System.out.println(idSearch);
 //	    model.addAttribute("searchOne", idSearch);
 //	    return "hello/db2";
+//	}
 }

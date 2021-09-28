@@ -40,10 +40,9 @@ public class SearchController {
 		return "hello/db2";
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("/show/{id}")
 	public String show(@PathVariable int id, Model model) {
 		EmployeeId selectOne = service.select(id);
-//		System.out.println(selectOne);
 		model.addAttribute("selectOne", selectOne);
 //		model.addAttribute("selectOne", service.search(idsearchRequest));
 //		System.out.println(model);
