@@ -3,7 +3,6 @@ package com.example.demo.hello;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
 
 import com.example.demo.hello.domain.user.entity.EmployeeId;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
@@ -19,7 +18,6 @@ public interface UserMapper{
 	EmployeeId search(IdsearchRequest id);
 	
 //	登録
-	@Options(useGeneratedKeys = true) //自動で連番のidを取得
 	void insert(EmployeeId newone);
 	
 //	更新

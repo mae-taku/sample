@@ -13,15 +13,13 @@
 		SELECT * FROM employee WHERE id = #{id}
 	</select>
 <!-- ユーザー1件登録 -->
-	<insert id="insert">
+	<insert id="insert" ><!-- Insert時にIDは自動連番するため、Insert文からは控除する -->
 	INSERT INTO employee(
-	id
-	, name
+	name
 	, age
 	)
 	values (
-	#{id}
-	, #{name}
+	#{name}
 	, #{age}
 	)
 	</insert>

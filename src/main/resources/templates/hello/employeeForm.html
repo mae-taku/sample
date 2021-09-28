@@ -10,7 +10,7 @@
     <h2>新規登録</h2>
 
 	<form method="post" th:action="@{/hello/employeeForm}" th:object="${employeeId}">
-		<input type="hidden" th:field="*{id}">
+<!-- 		<input type="hidden" th:field="*{id}"> -->
 		<div class="mb-3">
 			<label for="name">名前</label>
 			<input type="text"  th:field="*{name}">
