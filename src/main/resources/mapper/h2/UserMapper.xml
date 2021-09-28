@@ -12,6 +12,9 @@
 	<select id="search" resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
 		SELECT * FROM employee WHERE id = #{id}
 	</select>
+		<select id="select" resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
+		SELECT * FROM employee WHERE id = #{id}
+	</select>
 <!-- ユーザー1件登録 -->
 	<insert id="insert" ><!-- Insert時にIDは自動連番するため、Insert文からは控除する -->
 	INSERT INTO employee(

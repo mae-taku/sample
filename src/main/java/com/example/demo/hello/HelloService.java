@@ -38,7 +38,7 @@ public class HelloService {
 	@Autowired
 	private UserMapper userMapper;
 	
-//	全件検索
+//	全件取得
 	public List<EmployeeId> selectAll(){
 		return userMapper.selectAll();
 	}
@@ -46,6 +46,9 @@ public class HelloService {
 //	1件検索
 	public EmployeeId search(IdsearchRequest idsearchRequest){
 		return userMapper.search(idsearchRequest);
+	}
+	public EmployeeId select(int id) {
+		return userMapper.select(id);
 	}
 //　登録
 	public void insert(EmployeeId newone) {

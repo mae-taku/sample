@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.hello.HelloService;
@@ -39,7 +40,18 @@ public class SearchController {
 		return "hello/db2";
 	}
 	
-//	CREAT
+	@GetMapping("{id}")
+	public String show(@PathVariable int id, Model model) {
+		EmployeeId selectOne = service.select(id);
+//		System.out.println(selectOne);
+		model.addAttribute("selectOne", selectOne);
+//		model.addAttribute("selectOne", service.search(idsearchRequest));
+//		System.out.println(model);
+		return "hello/employeeShow";
+//		return "hello/db2";
+		}
+
+			//	CREAT
 	@GetMapping("hello/employeeForm") //list -> newボタン
 	public String NewEmployee(Model m, @ModelAttribute EmployeeId n) {
 		//newボタンを押されるとここを通る
@@ -54,4 +66,7 @@ public class SearchController {
 	//	UODATE
 //	DEALETE
 	
+	
 }
+
+

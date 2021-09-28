@@ -17,6 +17,8 @@ public interface UserMapper{
 	//@Select("SELECT * FROM empolyee WHERE id = #{id}")
 	EmployeeId search(IdsearchRequest id);
 	
+	EmployeeId select(int id);
+	
 //	登録
 	void insert(EmployeeId newone);
 	
