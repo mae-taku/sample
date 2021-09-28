@@ -24,4 +24,5 @@ public interface UserMapper{
 	
 //	更新
 //	削除
+
 }

@@ -47,6 +47,7 @@ public class HelloService {
 	public EmployeeId search(IdsearchRequest idsearchRequest){
 		return userMapper.search(idsearchRequest);
 	}
+
 	public EmployeeId select(int id) {
 		return userMapper.select(id);
 	}
