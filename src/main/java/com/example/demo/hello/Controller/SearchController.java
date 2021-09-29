@@ -61,7 +61,7 @@ public class SearchController {
 		}
 	
 //	UODATE
-	@GetMapping("/change/{id}/change/{id}") //list -> change画面
+	@GetMapping("/change/{id}/change") //list -> change画面
 	public String change (@PathVariable int id, Model model) {
 		EmployeeId selectOne = service.select(id);
 		model.addAttribute("selectOne", selectOne);
