@@ -27,5 +27,5 @@ public interface UserMapper{
 	int update(EmployeeId changeOne);
 	
 //	削除
-
+	void delete(int id);
 }

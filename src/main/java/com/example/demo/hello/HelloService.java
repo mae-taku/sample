@@ -59,4 +59,8 @@ public class HelloService {
 	public int update(EmployeeId changeOne) {
 		return userMapper.update(changeOne);
 		}
+//	削除
+	public void delete(int id) {
+		userMapper.delete(id);
+	}
 }
