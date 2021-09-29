@@ -52,7 +52,11 @@ public class HelloService {
 		return userMapper.select(id);
 	}
 //　登録
-	public void insert(EmployeeId newone) {
-		userMapper.insert(newone);
+	public void insert(EmployeeId newOne) {
+		userMapper.insert(newOne);
+		}
+//	更新
+	public int update(EmployeeId changeOne) {
+		return userMapper.update(changeOne);
 		}
 }

@@ -17,13 +17,12 @@
 	</select>
 <!-- ユーザー1件登録 -->
 	<insert id="insert" ><!-- Insert時にIDは自動連番するため、Insert文からは控除する -->
-	INSERT INTO employee(
-	name
-	, age
-	)
-	values (
-	#{name}
-	, #{age}
-	)
+	INSERT INTO employee(name, age)
+	values (#{name}, #{age})
 	</insert>
+	<update id="update">
+	UPDATE employee
+	SET name = #{name}, age = #{age}
+	WHERE id = #{id}
+	</update>
 </mapper>

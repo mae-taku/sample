@@ -17,12 +17,15 @@ public interface UserMapper{
 	//@Select("SELECT * FROM empolyee WHERE id = #{id}")
 	EmployeeId search(IdsearchRequest id);
 	
-	EmployeeId select(int id);
-	
+//	詳細画面出力用
+	EmployeeId select(int id);	
+
 //	登録
 	void insert(EmployeeId newone);
 	
 //	更新
+	int update(EmployeeId changeOne);
+	
 //	削除
 
 }

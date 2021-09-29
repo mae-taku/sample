@@ -67,7 +67,8 @@ public class SearchController {
 		model.addAttribute("selectOne", selectOne);
 		return "hello/employeeChange";		
 	}
-	@PutMapping("put/{id}") //UPDATE処理
+	
+	@PutMapping("/hello/employeeChange/{id}") //UPDATE処理
 	public String update (EmployeeId changeOne) {
 		service.update(changeOne);
 		return "redirect:/hello/employeeList";	
