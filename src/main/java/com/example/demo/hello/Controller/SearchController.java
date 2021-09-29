@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.example.demo.hello.HelloService;
 import com.example.demo.hello.domain.user.entity.EmployeeId;
@@ -39,31 +40,40 @@ public class SearchController {
 		//db.htmlに画面遷移
 		return "hello/db2";
 	}
-	
+	//詳細画面遷移
 	@GetMapping("/show/{id}")
 	public String show(@PathVariable int id, Model model) {
 		EmployeeId selectOne = service.select(id);
 		model.addAttribute("selectOne", selectOne);
-//		model.addAttribute("selectOne", service.search(idsearchRequest));
-//		System.out.println(model);
 		return "hello/employeeShow";
-//		return "hello/db2";
 		}
 
-			//	CREAT
-	@GetMapping("hello/employeeForm") //list -> newボタン
+//	CREAT
+	@GetMapping("hello/employeeForm") //list -> 登録画面
 	public String NewEmployee(Model m, @ModelAttribute EmployeeId n) {
 		//newボタンを押されるとここを通る
 		return "hello/employeeForm";
 	}
-	@PostMapping("hello/employeeForm")
+	@PostMapping("hello/employeeForm") //CREATE処理
 	public String create(@ModelAttribute EmployeeId n) {
 		service.insert(n);
 		return "redirect:/hello/employeeList";
 		}
 	
-	//	UODATE
-//	DEALETE
+//	UODATE
+	@GetMapping("/change/{id}/change/{id}") //list -> change画面
+	public String change (@PathVariable int id, Model model) {
+		EmployeeId selectOne = service.select(id);
+		model.addAttribute("selectOne", selectOne);
+		return "hello/employeeChange";		
+	}
+	@PutMapping("put/{id}") //UPDATE処理
+	public String update (EmployeeId changeOne) {
+		service.update(changeOne);
+		return "redirect:/hello/employeeList";	
+	}
+	
+	//	DEALETE
 	
 	
 }
