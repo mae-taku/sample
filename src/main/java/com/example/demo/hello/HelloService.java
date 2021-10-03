@@ -1,15 +1,22 @@
 package com.example.demo.hello;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.hello.domain.Employee;
+import com.example.demo.hello.domain.user.entity.EmployeeId;
+import com.example.demo.hello.domain.user.service.IdsearchRequest;
+
+
+
 @Service
 public class HelloService {
 	
 	@Autowired
-	private HelloResponsitory repository;
+	private HelloRepository repository;
 	/**従業員を1人取得する*/
 	public Employee getEmployee(String id) {
 		//検索
@@ -27,5 +34,33 @@ public class HelloService {
 		employee.setEmployeeAge(age);
 	
 		return employee;	
+	}
+	@Autowired
+	private UserMapper userMapper;
+	
+//	全件取得
+	public List<EmployeeId> selectAll(){
+		return userMapper.selectAll();
+	}
+	
+//	1件検索
+	public EmployeeId search(IdsearchRequest idsearchRequest){
+		return userMapper.search(idsearchRequest);
+	}
+
+	public EmployeeId select(int id) {
+		return userMapper.select(id);
+	}
+//　登録
+	public void insert(EmployeeId newOne) {
+		userMapper.insert(newOne);
+		}
+//	更新
+	public int update(EmployeeId changeOne) {
+		return userMapper.update(changeOne);
+		}
+//	削除
+	public void delete(int id) {
+		userMapper.delete(id);
 	}
 }

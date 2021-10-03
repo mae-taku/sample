@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Mppperとxmlのマッピング -->
+<mapper namespace="com.example.demo.hello.UserMapper">
+	<!-- 全件取得 -->
+	<select id="selectAll"
+		resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
+		SELECT * FROM employee
+	</select>
+	<!-- ユーザー1件検索 -->
+	<select id="search"
+		resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
+		SELECT * FROM employee WHERE id = #{id}
+	</select>
+	<!-- 詳細画面出力用 -->
+	<select id="select"
+		resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
+		SELECT * FROM employee WHERE id = #{id}
+	</select>
+	<!-- ユーザー1件登録 -->
+	<insert id="insert"><!-- Insert時にIDは自動連番するため、Insert文からは控除する -->
+		INSERT INTO employee(name, age)
+		values (#{name}, #{age})
+	</insert>
+	<!-- 更新 -->
+	<update id="update">
+		UPDATE employee
+		SET name = #{name}, age = #{age}
+		WHERE id = #{id}
+	</update>
+	<!-- 削除 -->
+	<delete id="delete">
+		DELETE FROM employee
+		WHERE id = #{id}
+	</delete>
+
+</mapper>

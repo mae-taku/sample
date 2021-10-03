@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8"></meta>
+ <title>登録画面</title>
+</head>
+<body>
+ <form method="post" action="/hello/db2">
+ ID:<input type="text" name="id" th:object="${IdSearch}"/>
+ name:<input type="text" name="name" th:object="${IdSearch}"/>
+ age:<input type="text" name="age" th:object="${IdSearch}"/>
+ <input type="submit" value="クリック">
+ </form>
+
+</body>
+</html>

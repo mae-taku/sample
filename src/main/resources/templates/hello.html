@@ -14,5 +14,13 @@
  従業員ID:<input type="text" name="text2" th:value="${text2_value}"/>
  <input type="submit" value="クリック">
  </form>
- </body>
+<!-- 別画面へ遷移 th:href -->
+  <a th:href="@{/hello/employeeList}">
+		<button>従業員リスト</button>
+	</a>
+ 
+ <!--  <form method="get" action="/employeeList">
+ Employee Listへ<input type="submit" value="移動">
+ </form>
+ </body> -->
 </html>

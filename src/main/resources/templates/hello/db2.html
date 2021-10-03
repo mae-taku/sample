@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8"></meta>
+ <title>ResponseSample</title>
+</head>
+ <body>
+ <h1>従業員検索結果</h1>
+ <table th:object=${searchone}>
+ <tr>
+  <td>ID:</td>
+  <td th:text="${searchOne.id}"></td>
+ </tr>
+ <tr>
+  <td>名前:</td>
+  <td th:text="${searchOne.name}"></td>
+ </tr>
+ <tr>
+  <td>年齢:</td>
+  <td th:text="${searchOne.age}"></td>
+ </tr> 
+ </table>
+ </body>
+ </html>
