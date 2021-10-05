@@ -15,12 +15,9 @@
  <input type="submit" value="クリック">
  </form>
 <!-- 別画面へ遷移 th:href -->
-  <a th:href="@{/employee/employeeList}">
+	<a th:href="@{/employee/employeeList}">
 		<button>従業員リスト</button>
 	</a>
- 
- <!--  <form method="get" action="/employeeList">
- Employee Listへ<input type="submit" value="移動">
- </form>
- </body> -->
-</html>
+	<a th:href="@{/dateCalc/dateList}">
+		<button>日付計算アプリへ</button>
+	</a></html>

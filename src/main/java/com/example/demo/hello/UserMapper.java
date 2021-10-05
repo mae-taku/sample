@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.hello.domain.user.entity.EmployeeId;
+import com.example.demo.hello.domain.user.entity.HidukeForm;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 @Mapper
@@ -28,4 +29,6 @@ public interface UserMapper{
 	
 //	削除
 	void delete(int id);
+//	全件取得
+	List<HidukeForm> selectAllDate();
 }

@@ -35,5 +35,9 @@
 		DELETE FROM employee
 		WHERE id = #{id}
 	</delete>
-
+<!--日付計算アプリ -->
+	<select id="selectAllDate"
+		resultType="com.example.demo.hello.domain.user.entity.HidukeForm">
+		SELECT * FROM hiduke
+	</select>
 </mapper>

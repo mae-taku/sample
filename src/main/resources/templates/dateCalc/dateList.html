@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- bootstrapの設定 -->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<!-- webjars-locatorを入れることで、以下の「バージョン指定（ex./4.3.1/）」部分の記載が不要となる。 -->
+<!-- <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}">
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script> -->
+<title>Date List</title>
+</head>
+<body>
+	<h1>Date List</h1>
+	<a th:href="@{/employee/employeeForm}">
+		<button>従業員登録</button>
+	</a>
+	<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>日付ID</th>
+				<th>日付名</th>
+				<th>計算結果</th>
+				<th>計算処理</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- each;DBの情報をすべて出すまで繰り返す -->
+			<tr th:each="All : ${selectAll}" th:object="${All}">
+				<!-- 		 ${selectAll}から1件ずつ取り出し、All変数に格納。
+			th:object フォームにバインドするオブジェクトを設定。->オブジェクト名を省略できる。
+			使わない場合は、
+			<tr th:each="All : ${selectAll}">
+				<td th:text="${All.id}"></td> -->
+				<td th:text="*{id}"></td>
+				<td th:text="*{hidukeId}"></td>
+				<td th:text="*{hidukeName}"></td>
+				<td th:text="*{countYear}"></td>
+				<td th:text="*{countMonth}"></td>
+				<td th:text="*{countDay}"></td>
+				<td><a th:href="@{/show/{id}(id=*{id})}">
+						<button>詳細</button>
+				</a></td>
+				<td><a th:href="@{/change/{id}/change(id=*{id})}">
+						<button>変更</button>
+				</a></td>
+				<td><form th:action="@{/delete/{id}/delete(id=*{id})}" th:method="delete">
+						<button>削除</button>
+				</form></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>
