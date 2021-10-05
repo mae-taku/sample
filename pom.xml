@@ -72,7 +72,27 @@
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		    </dependency>
-				
+		<!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+		<!-- Bootstrap使うためには、JavaScriptのライブラリー(jquery)が必要。 -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>jquery</artifactId>
+		    <version>3.6.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>bootstrap</artifactId>
+		    <version>5.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.webjars/webjars-locator -->
+		<!-- webjars　JavaScriptやCSSのライブラリのこと。webjars-locatorを入れると、webjarsを用いてHTML記述時に、ライブラリのバージョン指定が不要となる。 -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>webjars-locator</artifactId>
+		    <version>0.42</version>
+		</dependency>
+		
 	</dependencies>
 	
 
