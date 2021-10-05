@@ -28,7 +28,7 @@
 			<tr th:each="All : ${selectAll}">
 				<td th:text="${All.id}"></td> -->
 				<td th:text="*{id}"></td>
-				<td th:text="*{name}"></td>
+				<td th:text="*{name}+*{name}"></td>
 				<td th:text="*{age}"></td>
 				<td><a th:href="@{/show/{id}(id=*{id})}">
 						<button>詳細</button>
