@@ -30,5 +30,5 @@ public interface UserMapper{
 //	削除
 	void delete(int id);
 //	全件取得
-	List<HidukeForm> selectAllDate();
+	List<HidukeForm> selectAllDate();	
 }
