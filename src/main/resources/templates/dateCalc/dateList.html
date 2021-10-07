@@ -16,6 +16,12 @@
 <title>Date List</title>
 </head>
 <body>
+ <form method="post" action="/dateCalc/dateList">
+ 入力:<input type="date" name="inputDate" th:object="${InputDate}"/>
+ <input type="submit" value="クリック">
+ </form>
+<!-- 受け取った文字を表示する -->
+<p th:text="${inputdate}"></p>
 	<h1>Date List</h1>
 	<a th:href="@{/employee/employeeForm}">
 		<button>加減算式登録</button>
