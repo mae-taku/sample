@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.hello.DateCalcService;
-import com.example.demo.hello.domain.user.entity.HidukeForm;
+import com.example.demo.hello.domain.user.entity.HidukeOutForm;
 
 @Controller
 public class DateCalcController {
@@ -24,7 +24,7 @@ public class DateCalcController {
 	
 	@GetMapping("dateCalc/dateList")
 	public String top(Model m) {
-		List<HidukeForm>selectAll = service.selectAllDate();
+		List<HidukeOutForm>selectAll = service.selectAllDate();
 //		System.out.println(selectAll);
 		m.addAttribute("selectAll", selectAll);
 		return "dateCalc/dateList";
