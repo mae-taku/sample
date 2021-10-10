@@ -53,10 +53,7 @@
 				<td th:text="*{hidukeName}"></td>
 				<td th:text="*{resultDate}"></td>
 				<td th:text="*{date}"></td>
-				<td><a th:href="@{/show/{id}(id=*{id})}">
-						<button>詳細</button>
-				</a></td>
-				<td><a th:href="@{/change/{id}/change(id=*{id})}">
+				<td><a th:href="@{/datechange/{id}/datechange(id=*{id})}">
 						<button>変更</button>
 				</a></td>
 				<td><form th:action="@{/deleteCalc/{id}/deleteCalc(id=*{id})}" th:method="delete">

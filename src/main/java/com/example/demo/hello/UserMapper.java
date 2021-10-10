@@ -36,6 +36,9 @@ public interface UserMapper{
 	
 //	登録
 	void insertHiduke(HidukeForm newone);
+
+//	変更個別画面出力用
+	HidukeForm selectHiduke(int id);	
 	
 //	削除
 	void deleteHiduke(int id);

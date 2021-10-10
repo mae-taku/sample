@@ -55,7 +55,9 @@ public class DateCalcService {
 		userMapper.insertHiduke(newOne);
 		}
 //	UPDATE
-	
+	public HidukeForm select(int id) {
+		return userMapper.selectHiduke(id);
+	}
 //	DELETE
 	public void delete(int id) {
 		userMapper.deleteHiduke(id);

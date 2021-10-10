@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+
+<head>
+<meta charset="UTF-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- bootstrapの設定 -->
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+<title>計算式変更</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="container-fluid">
+	<h1>変更画面</h1>
+
+	<form method="post" th:action="@{/dateCalc/dateChange/{id}(id=*{id})}" th:object="${selectOne}">
+		<div class="container">
+			<label for="hidukeId">日付ID</label>
+			 <input type="text" th:field="*{hidukeId}">
+		</div>
+		<div class="container">
+			<label for="hidukeName">日付名</label>
+			<input type="text" th:field="*{hidukeName}">
+		</div>
+		<div class="container">
+			<label for="countYear">加減値（年）</label>
+			<input type="number" th:field="*{countYear}">
+		</div>
+		<div class="container">
+			<label for="countMonth">加減値（月）</label>
+			<input type="number" th:field="*{countMonth}">
+		</div>
+		<div class="container">
+			<label for="countDay">加減値（日）</label>
+			<input type="number" th:field="*{countDay}">
+		</div>
+		<button>新規作成</button>
+	</form>
+	</div>
+</body>
+</html>

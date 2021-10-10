@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.example.demo.hello.DateCalcService;
 import com.example.demo.hello.domain.user.entity.HidukeForm;
@@ -55,6 +56,19 @@ public class DateCalcController {
 		}
 	
 //	UPDATE
+	@GetMapping("/datechange/{id}/datechange") //list -> change画面
+//	変更前の詳細画面
+	public String change (@PathVariable int id, Model model) {
+		HidukeForm selectOne = service.select(id);
+		model.addAttribute("selectOne", selectOne);
+		return "dateCalc/dateChange";		
+	}
+	
+	@PutMapping("/dateCalc/dateChange/{id}") //UPDATE処理
+	public String update (HidukeForm changeOne) {
+		service.update(changeOne);
+		return "redirect:/employee/employeeList";	
+	}
 	
 //	DELEATE
 	@DeleteMapping("/deleteCalc/{id}/deleteCalc")
