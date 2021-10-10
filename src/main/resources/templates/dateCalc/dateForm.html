@@ -19,7 +19,7 @@
 	<div layout:fragment="content" class="container-fluid">
 	<h1>Date List</h1>
 
-	<form method="post" th:action="@{/dateCalc/dateForm}" th:object="${HidukeForm}">
+	<form method="post" th:action="@{/dateCalc/dateForm}" th:object="${hidukeForm}">
 		<div class="container">
 			<label for="hidukeId">日付ID</label>
 			 <input type="text" th:field="*{hidukeId}">
