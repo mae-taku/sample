@@ -43,6 +43,6 @@
 	</select>
 		<insert id="insertHiduke"><!-- Insert時にIDは自動連番するため、Insert文からは控除する -->
 		INSERT INTO hiduke(hiduke_id, hiduke_name, count_year, count_month, count_day)
-		values (#{hiduke_id}, #{hiduke_name}, #{count_year}, #{count_month}, #{count_day})
+		values (#{hidukeId}, #{hidukeName}, #{countYear}, #{countMonth}, #{countDay})
 	</insert>
 </mapper>
