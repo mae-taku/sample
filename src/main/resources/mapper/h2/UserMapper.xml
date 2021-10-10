@@ -45,4 +45,8 @@
 		INSERT INTO hiduke(hiduke_id, hiduke_name, count_year, count_month, count_day)
 		values (#{hidukeId}, #{hidukeName}, #{countYear}, #{countMonth}, #{countDay})
 	</insert>
+	<delete id="deleteHiduke">
+		DELETE FROM hiduke
+		WHERE id = #{id}
+	</delete>
 </mapper>

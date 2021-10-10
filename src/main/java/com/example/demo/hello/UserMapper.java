@@ -36,4 +36,7 @@ public interface UserMapper{
 	
 //	登録
 	void insertHiduke(HidukeForm newone);
+	
+//	削除
+	void deleteHiduke(int id);
 }
