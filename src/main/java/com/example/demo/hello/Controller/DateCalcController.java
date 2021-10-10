@@ -11,21 +11,23 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.hello.DateCalcService;
+import com.example.demo.hello.domain.user.entity.HidukeForm;
 import com.example.demo.hello.domain.user.entity.HidukeOutForm;
 import com.example.demo.hello.domain.user.service.InputDate;
 
 @Controller
 public class DateCalcController {
+
+	@Autowired
+	private DateCalcService service;
 	
-	
+//	Top画面遷移
 	@GetMapping("dateCalc/dateList")
 	public String getTop() {
 	 return "dateCalc/dateList";
 	}
 	
-	@Autowired
-	private DateCalcService service;
-
+//	計算処理及び一覧表示
 	@PostMapping("/dateCalc/dateList")	
 	public String postdate(@ModelAttribute("inputDate") InputDate inputDate, Model m, Model s ) {
 
@@ -34,16 +36,21 @@ public class DateCalcController {
 		//serviceに画面データ（基準日）を渡す。
 		ArrayList<HidukeOutForm>selectAll = service.selectAllDate(date);
 		//System.out.println(date);
-		m.addAttribute("selectAll", selectAll);
-		s.addAttribute("inputdate", inputDate);
+		m.addAttribute("selectAll", selectAll);//一覧データを渡す
+		s.addAttribute("inputdate", inputDate);//基準日データを渡す
 		return "dateCalc/dateList";
 	}
-//	@GetMapping("/dateCalc/dateList")
-//	public String top(Model m) {
-//		List<HidukeOutForm>selectAll = service.selectAllDate();
-////		System.out.println(selectAll);
-//		m.addAttribute("selectAll", selectAll);
-//		return "dateCalc/dateList";
-//	}
+//	CREAT
+	@GetMapping("dateCalc/dateForm") //list -> 登録画面
+	public String NewDateCalc(Model m, @ModelAttribute HidukeForm n) {
+		//newボタンを押されるとここを通る
+		return "dateCalc/dateForm";
+	}
+	@PostMapping("dateCalc/dateForm") //CREATE処理
+	public String create(@ModelAttribute HidukeForm n) {
+		service.insert(n);
+		return "redirect:/dateCalc/dateList";
+		}
+	
 
 }

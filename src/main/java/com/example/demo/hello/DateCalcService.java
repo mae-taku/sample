@@ -51,6 +51,9 @@ public class DateCalcService {
 	}
 	
 //	CREATE
+	public void insert(HidukeForm newOne) {
+		userMapper.insertHiduke(newOne);
+		}
 //	UPDATE
 //	DELETE
 }

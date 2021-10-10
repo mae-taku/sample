@@ -29,6 +29,11 @@ public interface UserMapper{
 	
 //	削除
 	void delete(int id);
+
+//	日付計算アプリ	
 //	全件取得
-	List<HidukeForm> selectAllDate();	
+	List<HidukeForm> selectAllDate();
+	
+//	登録
+	void insertHiduke(HidukeForm newone);
 }
