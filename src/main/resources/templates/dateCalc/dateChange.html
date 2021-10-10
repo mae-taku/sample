@@ -19,7 +19,7 @@
 	<div layout:fragment="content" class="container-fluid">
 	<h1>変更画面</h1>
 
-	<form method="post" th:action="@{/dateCalc/dateChange/{id}(id=*{id})}" th:object="${selectOne}">
+	<form th:method="put" th:action="@{/dateCalc/dateChange/{id}(id=*{id})}" th:object="${selectOne}">
 		<div class="container">
 			<label for="hidukeId">日付ID</label>
 			 <input type="text" th:field="*{hidukeId}">

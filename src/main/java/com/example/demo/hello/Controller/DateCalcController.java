@@ -67,7 +67,7 @@ public class DateCalcController {
 	@PutMapping("/dateCalc/dateChange/{id}") //UPDATE処理
 	public String update (HidukeForm changeOne) {
 		service.update(changeOne);
-		return "redirect:/employee/employeeList";	
+		return "redirect:/dateCalc/dateList";	
 	}
 	
 //	DELEATE

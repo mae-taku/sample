@@ -58,6 +58,11 @@ public class DateCalcService {
 	public HidukeForm select(int id) {
 		return userMapper.selectHiduke(id);
 	}
+//	更新
+	public int update(HidukeForm changeOne) {
+		return userMapper.updateHiduke(changeOne);
+		}
+
 //	DELETE
 	public void delete(int id) {
 		userMapper.deleteHiduke(id);

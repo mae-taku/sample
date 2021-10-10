@@ -50,6 +50,11 @@
 		resultType="com.example.demo.hello.domain.user.entity.HidukeForm">
 		SELECT * FROM hiduke WHERE id = #{id}
 	</select>
+	<update id="updateHiduke">
+		UPDATE hiduke
+		SET hiduke_id = #{hidukeId}, hiduke_name = #{hidukeName}, count_year = #{countYear}, count_month = #{countMonth}, count_day = #{countDay}
+		WHERE id = #{id}
+	</update>
 	<delete id="deleteHiduke">
 		DELETE FROM hiduke
 		WHERE id = #{id}

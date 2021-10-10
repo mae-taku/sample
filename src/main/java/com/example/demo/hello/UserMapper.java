@@ -39,6 +39,9 @@ public interface UserMapper{
 
 //	変更個別画面出力用
 	HidukeForm selectHiduke(int id);	
+
+	//	更新
+	int updateHiduke(HidukeForm changeOne);
 	
 //	削除
 	void deleteHiduke(int id);
