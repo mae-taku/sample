@@ -40,7 +40,7 @@ public class DateCalcController {
 		ArrayList<HidukeOutForm>selectAll = service.selectAllDate(date);
 		//System.out.println(date);
 		m.addAttribute("selectAll", selectAll);//一覧データを渡す
-		s.addAttribute("inputdate", inputDate);//基準日データを渡す
+		s.addAttribute("inputdate", date);//基準日データを渡す
 		return "dateCalc/dateList";
 	}
 //	CREAT
