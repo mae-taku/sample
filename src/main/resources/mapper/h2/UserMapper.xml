@@ -41,9 +41,15 @@
 		resultType="com.example.demo.hello.domain.user.entity.HidukeForm">
 		SELECT * FROM hiduke
 	</select>
-		<insert id="insertHiduke"><!-- Insert時にIDは自動連番するため、Insert文からは控除する -->
-		INSERT INTO hiduke(hiduke_id, hiduke_name, count_year, count_month, count_day)
-		values (#{hidukeId}, #{hidukeName}, #{countYear}, #{countMonth}, #{countDay})
+	<insert id="insertHiduke">
+<!--		insert前にテーブルから最小番号の検索をかけて、Entityにその値を入れる -->
+		<selectKey keyProperty="id" resultType="com.example.demo.hello.domain.user.entity.HidukeForm" order="BEFORE">
+		    SELECT MIN(id + 1) as id FROM hiduke 
+			WHERE
+    		(id + 1) NOT IN (SELECT id FROM hiduke)
+	  	</selectKey>
+		INSERT INTO hiduke(id,hiduke_id, hiduke_name, count_year, count_month, count_day)
+		values (#{id}, #{hidukeId}, #{hidukeName}, #{countYear}, #{countMonth}, #{countDay})
 	</insert>
 	<!-- 変更画面出力用 -->
 	<select id="selectHiduke"
@@ -57,6 +63,6 @@
 	</update>
 	<delete id="deleteHiduke">
 		DELETE FROM hiduke
-		WHERE id = #{id}
+		WHERE id = #{id};
 	</delete>
 </mapper>
