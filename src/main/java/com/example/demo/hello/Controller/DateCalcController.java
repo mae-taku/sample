@@ -47,7 +47,7 @@ public class DateCalcController {
 	}
 //	CREAT
 	@GetMapping("dateCalc/dateForm") //list -> 登録画面
-	public String NewDateCalc(Model m, @ModelAttribute HidukeForm n) {
+	public String NewDateCalc(@ModelAttribute HidukeForm n) {
 		//newボタンを押されるとここを通る
 		return "dateCalc/dateForm";
 	}
@@ -55,7 +55,7 @@ public class DateCalcController {
 	public String create(@ModelAttribute @Validated HidukeForm n, BindingResult bindingResult) {
 		//入力チェック
 		if(bindingResult.hasErrors()) {
-			return "dateCalc/dateForm"; //エラーの場合、登録画面へ戻す
+			return NewDateCalc(n); //エラーの場合、登録画面へ戻す
 		}
 		service.insert(n);
 		return "redirect:/dateCalc/dateList";
