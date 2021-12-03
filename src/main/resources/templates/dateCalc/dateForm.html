@@ -20,11 +20,14 @@
 
 		<div class="col-2">
 			<label for="hidukeId">日付ID</label>
-			 <input type="text" th:field="*{hidukeId}">
+			 <input type="text" th:field="*{hidukeId}" th:errorclass="is-invalid">
+			 <div class="invalid-feedback" th:errors="*{hidukeId}"></div>
+		</div>
+		<div class="text-danger" th:if="${#fields.hasErrors('hidukeId')}" th:errors="*{hidukeId}">
 		</div>
 		<div class="col-2">
 			<label for="hidukeName">日付名</label>
-			<input type="text" th:field="*{hidukeName}">
+			<input type="text" th:field="*{hidukeName}" th:errorclass="is-invalid">
 		</div>
 		<div class="col-2">
 			<label for="countYear">加減値（年）</label>
