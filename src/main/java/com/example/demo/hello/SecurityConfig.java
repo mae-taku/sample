@@ -1,16 +1,23 @@
 package com.example.demo.hello;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+	//パスワードの暗号化
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
     /** セキュリティの対象外を設定 */
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -50,12 +57,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //  認証の設定
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-
+	
+	PasswordEncoder encoder = passwordEncoder();//暗号化の入れ物
 	//	インメモリ認証
 	auth
 		.inMemoryAuthentication()
 			.withUser("user") //userを追加 
-				.password("{noop}user")//パスワードは必ずエンコードしなければならない->しないなら{noop}をつける
+				//.password("{noop}user")//パスワードは必ずエンコードしなければならない->しないなら{noop}をつける
+				.password(encoder.encode("user"))
 				.roles("GENERAL");
 	}
 }
