@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.example.demo.hello.DateCalcService;
-import com.example.demo.hello.domain.user.entity.HidukeForm;
-import com.example.demo.hello.domain.user.entity.HidukeOutForm;
+import com.example.demo.hello.domain.user.Form.HidukeForm;
+import com.example.demo.hello.domain.user.Form.HidukeOutForm;
 import com.example.demo.hello.domain.user.service.InputDate;
 
 @Controller

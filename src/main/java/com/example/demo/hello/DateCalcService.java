@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.hello.domain.user.entity.HidukeForm;
-import com.example.demo.hello.domain.user.entity.HidukeOutForm;
+import com.example.demo.hello.domain.user.Form.HidukeForm;
+import com.example.demo.hello.domain.user.Form.HidukeOutForm;
 
 @Service
 public class DateCalcService {

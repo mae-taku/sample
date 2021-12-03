@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.hello.domain.user.Form.HidukeForm;
 import com.example.demo.hello.domain.user.entity.EmployeeId;
-import com.example.demo.hello.domain.user.entity.HidukeForm;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 @Mapper
