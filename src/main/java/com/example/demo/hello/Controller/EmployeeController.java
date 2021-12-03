@@ -17,7 +17,7 @@ import com.example.demo.hello.domain.user.entity.EmployeeId;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 @Controller
-public class SearchController {
+public class EmployeeController {
 	
 	@Autowired
 	private HelloService service;
