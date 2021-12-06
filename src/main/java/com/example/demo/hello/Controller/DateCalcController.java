@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.example.demo.hello.DateCalcService;
-import com.example.demo.hello.domain.user.Form.HidukeForm;
-import com.example.demo.hello.domain.user.Form.HidukeOutForm;
-import com.example.demo.hello.domain.user.service.InputDate;
+import com.example.demo.hello.Form.HidukeForm;
+import com.example.demo.hello.Form.HidukeOutForm;
+import com.example.demo.hello.Form.InputDateForm;
 
 @Controller
 public class DateCalcController {
@@ -34,7 +34,7 @@ public class DateCalcController {
 	
 //	計算処理及び一覧表示
 	@PostMapping("/dateCalc/dateList")	
-	public String postdate(@ModelAttribute("inputDate") InputDate inputDate, Model m, Model s ) {
+	public String postdate(@ModelAttribute("inputDate") InputDateForm inputDate, Model m, Model s ) {
 
 		//画面入力データを、一度InputDateに格納。そして、計算処理の為に、LocalDate型で取り出す。
 		LocalDate date = inputDate.getInputDate();
