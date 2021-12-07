@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.example.demo.hello.domain.user.Form.HidukeForm;
+import com.example.demo.hello.Form.HidukeForm;
+import com.example.demo.hello.domain.user.MUser;
 import com.example.demo.hello.domain.user.entity.EmployeeId;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
@@ -40,9 +41,18 @@ public interface UserMapper{
 //	変更個別画面出力用
 	HidukeForm selectHiduke(int id);	
 
-	//	更新
+//	更新
 	int updateHiduke(HidukeForm changeOne);
 	
 //	削除
 	void deleteHiduke(int id);
+	
+//	ログイン機能
+//	登録
+	public int insertUser(MUser user);
+
+//	ログインユーザー取得
+	public MUser findLoginUser(String userID);
+//	更新
+//	削除
 }

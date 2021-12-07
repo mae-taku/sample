@@ -1,5 +1,6 @@
 package com.example.demo.hello;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -7,17 +8,23 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
 	//パスワードの暗号化
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
     /** セキュリティの対象外を設定 */
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -47,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.loginProcessingUrl("/login") //ログイン処理のパス
 		.loginPage("/login") //ログインページの指定
 		.failureUrl("/login?error") //ログイン失敗時の遷移先
-		.usernameParameter("userID") //ログインページのユーザーID
+		.usernameParameter("userId") //ログインページのユーザーID
 		.passwordParameter("password") //ログインページのパスワード
 		.defaultSuccessUrl("/hello", true); //成功後の遷移先
 		
@@ -60,11 +67,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	PasswordEncoder encoder = passwordEncoder();//暗号化の入れ物
 	//	インメモリ認証
+//	auth
+//		.inMemoryAuthentication()
+//			.withUser("user") //userを追加 
+//				//.password("{noop}user")//パスワードは必ずエンコードしなければならない->しないなら{noop}をつける
+//				.password(encoder.encode("user"))
+//				.roles("GENERAL");
+	//　ユーザーデータで認証
 	auth
-		.inMemoryAuthentication()
-			.withUser("user") //userを追加 
-				//.password("{noop}user")//パスワードは必ずエンコードしなければならない->しないなら{noop}をつける
-				.password(encoder.encode("user"))
-				.roles("GENERAL");
+		.userDetailsService(userDetailsService)
+		.passwordEncoder(encoder);
+		
 	}
 }
