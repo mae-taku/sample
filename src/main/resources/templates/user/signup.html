@@ -13,19 +13,19 @@
 <title>新規登録</title>
 </head>
 <body class="bg-light">
-	<form method="post" action="/user/signup" class="form-signup" th:object="signupFrom">
+	<form method="post" action="/user/signup" class="form-signup" th:object="${signupFrom}">
 	<h1 class="text-center">新規登録</h1>
 	<!-- ユーザーID -->
 	<div class="form-group">
-		<label for="userId" th:text="#{userId}"></label>
-		<input type="text" class="form-control" th:field="*{userId}" th:errorclass="is-invalid">
-		<div class="invalid-feedback" th:errors="{userId}"></div>	
+		<label for="userId">userId</label>
+		<input type="text" class="form-control" th:field="*{userId}" th:errorclass="is-invalid"/>
+		<div class="invalid-feedback" th:errors="*{userId}"></div>	
 	</div>
 	<!-- パスワード -->  
 	<div class="form-group">
-		<label for="password" th:text="#{password}"></label>
-		<input type="text" class="form-control" th:field="*{password}" th:errorclass="is-invalid">
-		<div class="invalid-feedback" th:errors="{password}"></div>	
+		<label for="password">password</label>
+		<input type="text" class="form-control" th:field="*{password}" th:errorclass="is-invalid"/>
+		<div class="invalid-feedback" th:errors="*{password}"></div>	
 	</div>
 	<!-- 登録ボタン -->
 	<input type="submit" th:value="#{user.signup.btn}" class="btn btn-primary w-100 mt-3" />
