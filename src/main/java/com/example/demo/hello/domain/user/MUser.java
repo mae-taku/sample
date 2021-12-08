@@ -4,8 +4,12 @@ import lombok.Data;
 
 @Data
 public class MUser {
-	private int id;
+	
+	private int Id;
+
 	private String userId;
+	
 	private String password;
-	public String role; 
+	
+	private String role; 
 }

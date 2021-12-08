@@ -27,11 +27,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		
 //		ユーザー情報取得
 		MUser loginUser = service.getLoginUser(username);
-		
+
 //		ユーザーが存在しない場合
 		if(loginUser == null) {
 			throw new UsernameNotFoundException("user not found");
 		}
+		
 //		権限listの作成
 		GrantedAuthority authority = new SimpleGrantedAuthority(loginUser.getRole());
 		List<GrantedAuthority> authorities = new ArrayList<>();

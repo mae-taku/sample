@@ -52,7 +52,7 @@ public interface UserMapper{
 	public int insertUser(MUser user);
 
 //	ログインユーザー取得
-	public MUser findLoginUser(String userID);
+	public MUser findLoginUser(String userId);
 //	更新
 //	削除
 }
