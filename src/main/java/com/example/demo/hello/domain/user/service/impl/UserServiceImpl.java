@@ -21,6 +21,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void signup(MUser user) {
 		
+		// ログイン機能用の権限を自動登録
+		user.setRole("ROLE_GENERAL"); //接頭語[ROLE_]必須。GENERAL他、ADMINとかある。
+		
 		// パスワード暗号化
 		String rawpassword = user.getPassword();
 		user.setPassword(encoder.encode(rawpassword));

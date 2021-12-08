@@ -69,8 +69,8 @@
 <!--ログイン機能 -->
 	<!-- ユーザー1件登録 -->
 	<insert id="insertUser"><!-- Insert時にIDは自動連番するため、Insert文からは控除する -->
-		INSERT INTO m_user(user_id, password)
-		values (#{userId}, #{password})
+		INSERT INTO m_user(user_id, password, role)
+		values (#{userId}, #{password}, #{role})
 	</insert>
 <!--ログインユーザー情報取得 -->
 	<select id="findLoginUser"
