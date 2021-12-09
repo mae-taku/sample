@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 @Configuration
@@ -50,17 +51,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		// ログイン処理
 		http
-		.formLogin()
-		.loginProcessingUrl("/login") //ログイン処理のパス
-		.loginPage("/login") //ログインページの指定
-		.failureUrl("/login?error") //ログイン失敗時の遷移先
-		.usernameParameter("userId") //ログインページのユーザーID
-		.passwordParameter("password") //ログインページのパスワード
-		.defaultSuccessUrl("/hello", true); //成功後の遷移先
+			.formLogin()
+				.loginProcessingUrl("/login") //ログイン処理のパス
+				.loginPage("/login") //ログインページの指定
+				.failureUrl("/login?error") //ログイン失敗時の遷移先
+				.usernameParameter("userId") //ログインページのユーザーID
+				.passwordParameter("password") //ログインページのパスワード
+				.defaultSuccessUrl("/hello", true); //成功後の遷移先
+		
+		// ログアウト処理
+		http
+			.logout()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.logoutUrl("/logout")
+				.logoutSuccessUrl("/login?logout");
 		
 		// CSRF対策を無効に設定（一時的）
 		http.csrf().disable();
 	}
+    
 //  認証の設定
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
