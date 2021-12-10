@@ -9,7 +9,7 @@
 	<div layout:fragment="content" class="container-fluid">
     <h2>登録変更</h2>
 
-	<form th:method="put" th:action="@{/hello/employeeChange/{id}(id=*{id})}" th:object="${selectOne}">
+	<form th:method="put" th:action="@{/employee/employeeChange/{id}(id=*{id})}" th:object="${selectOne}">
 <!-- 		<input type="hidden" th:field="*{id}"> -->
 		<div class="mb-3">
 			<label for="name">名前</label>

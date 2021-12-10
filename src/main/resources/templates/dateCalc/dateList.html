@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- bootstrapの設定 -->
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+	<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+<!--webjars-locatorを入れることで、以下の「バージョン指定（ex./4.3.1/）」部分の記載が不要となる。
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}">  
+	<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script> -->
+
+	<title>日付計算アプリ</title>
+</head>
+
+<body>
+	<h1>Date List</h1>
+	<div class="container">
+		<div class="row">
+		<div class="col-auto">
+			<form method="post" action="/dateCalc/dateList">
+				基準日入力:<input type="date" name="inputDate" th:object="${InputDate}"
+					th:value="${inputdate}" />
+				<!-- 		th:valueで入力後のデータを再度表示する -->
+				<input type="submit" value="計算実行" class="btn btn-outline-dark">
+			</form>
+		</div>
+
+		<div class="col">
+			<a th:href="@{/dateCalc/dateForm}">
+				<button class="btn btn-outline-dark">加減算式登録</button>
+			</a>
+					</div>
+		</div>
+	</div>
+	<div class="container mt-5">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">日付ID</th>
+				<th scope="col">日付名</th>
+				<th scope="col" class="table-warning">計算結果</th>
+				<th scope="col">計算処理</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- each;DBの情報をすべて出すまで繰り返す -->
+			<tr th:scope="row" th:each="All : ${selectAll}" th:object="${All}">
+				<!--  ${selectAll}から1件ずつ取り出し、All変数に格納。
+			th:object フォームにバインドするオブジェクトを設定。->オブジェクト名を省略できる。
+			使わない場合は、
+			<tr th:each="All : ${selectAll}">
+				<td th:text="${All.id}"></td> -->
+				<td th:text="*{id}"></td>
+				<td th:text="*{hidukeId}"></td>
+				<td th:text="*{hidukeName}"></td>
+				<td th:text="*{resultDate}" class="table-warning"></td>
+				<td th:text="*{date}"></td>
+				<td><a th:href="@{/datechange/{id}/datechange(id=*{id})}">
+						<button type="button" class="btn btn-secondary btn-sm">変更</button>
+				</a></td>
+				<td>
+					<form th:action="@{/deleteCalc/{id}/deleteCalc(id=*{id})}" th:method="delete">
+						<button class="btn btn-danger btn-sm">削除</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

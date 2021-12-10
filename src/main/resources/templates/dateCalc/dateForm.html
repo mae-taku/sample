@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- bootstrapの設定 -->
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+	<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+<title>計算式登録</title>
+</head>
+
+<body>
+	<div class="conatainer bg-light">
+	<h1>新規登録</h1>
+	<div class=container>
+	<form method="post" th:action="@{/dateCalc/dateForm}" th:object="${hidukeForm}">
+
+		<div class="col-2">
+			<label for="hidukeId">日付ID</label>
+			 <input type="text" th:field="*{hidukeId}" th:errorclass="is-invalid">
+			 <div class="invalid-feedback" th:errors="*{hidukeId}"></div>
+		</div>
+		<div class="text-danger" th:if="${#fields.hasErrors('hidukeId')}" th:errors="*{hidukeId}">
+		</div>
+		<div class="col-2">
+			<label for="hidukeName">日付名</label>
+			<input type="text" th:field="*{hidukeName}" th:errorclass="is-invalid">
+		</div>
+		<div class="col-2">
+			<label for="countYear">加減値（年）</label>
+			<input type="number" th:field="*{countYear}">
+		</div>
+		<div class="col-2">
+			<label for="countMonth">加減値（月）</label>
+			<input type="number" th:field="*{countMonth}">
+		</div>
+		<div class="col-2">
+			<label for="countDay">加減値（日）</label>
+			<input type="number" th:field="*{countDay}">
+ 		</div>
+ 		<div class="col-auto mt-2">
+		<button>登録</button>
+		<i class="bi bi-save"></i>
+		</div>
+	</form>
+	</div>
+	</div>	
+</body>
+</html>
