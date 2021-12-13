@@ -22,7 +22,7 @@ public class HelloController {
 	
 	@GetMapping("/hello")
 	public String getHello() {
-	 return "hello";
+	 return "hello/hello";
 	}
 	
 	@PostMapping("/hello")

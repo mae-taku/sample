@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.failureUrl("/login?error") //ログイン失敗時の遷移先
 				.usernameParameter("userId") //ログインページのユーザーID
 				.passwordParameter("password") //ログインページのパスワード
-				.defaultSuccessUrl("/hello", true); //成功後の遷移先
+				.defaultSuccessUrl("/top", true); //成功後の遷移先
 		
 		// ログアウト処理
 		http
