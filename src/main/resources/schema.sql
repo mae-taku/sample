@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS hiduke(
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	hiduke_id VARCHAR(10),
+	hiduke_name VARCHAR(10),
+	count_year INT,
+	count_month INT,
+	count_day INT
+);
+
+CREATE TABLE IF NOT EXISTS m_user(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	user_id VARCHAR(20),
+	password VARCHAR(50),
+	role VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS employee(
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	name VARCHAR(50),
+	age INT
+);
