@@ -23,3 +23,13 @@ INSERT INTO `employee` (
 	'mike',
 	30
 );
+
+INSERT INTO `m_user`(
+	`user_id`,
+	`password`,
+	`role`
+) VALUES(
+	'user05',
+	'$2a$10$bWZeHWmahkVCDq8HeZ/rDe2v8HLDsawRQWyvUlkvGw3.BxkGdfky6',
+	'ROLE_GENERAL'
+);
