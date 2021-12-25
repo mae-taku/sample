@@ -76,12 +76,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	PasswordEncoder encoder = passwordEncoder();//暗号化の入れ物
 	//	インメモリ認証
-//	auth
-//		.inMemoryAuthentication()
-//			.withUser("user") //userを追加 
-//				//.password("{noop}user")//パスワードは必ずエンコードしなければならない->しないなら{noop}をつける
-//				.password(encoder.encode("user"))
-//				.roles("GENERAL");
+	auth
+		.inMemoryAuthentication()
+			.withUser("user") //userを追加 
+				//.password("{noop}user")//パスワードは必ずエンコードしなければならない->しないなら{noop}をつける
+				.password(encoder.encode("user"))
+				.roles("GENERAL");
 	//　ユーザーデータで認証
 	auth
 		.userDetailsService(userDetailsService)
