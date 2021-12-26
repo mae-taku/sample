@@ -13,6 +13,22 @@ INSERT INTO `hiduke` (
 	10,
 	10
 	);
+	
+INSERT INTO `hiduke` (
+	`id`,
+	`hiduke_id`,
+	`hiduke_name`,
+	`count_year`,
+	`count_month`,
+	`count_day`
+) VALUES (
+	2,
+	'sample02',
+	'sample02',
+	20,
+	20,
+	20
+	);
 
 INSERT INTO `employee` (
 	`id`,
