@@ -3,10 +3,13 @@ package com.example.demo.hello.Form;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.Builder;
 import lombok.Data;
 
+@Builder
 @Data
 public class HidukeForm {
+
 	private int id;
 	
 	@NotBlank //スペース含めて、空白×
