@@ -68,9 +68,6 @@ class UserMapperTest {
 	void 削除_id2を削除する() {
 		
 		userMapper.deleteHiduke(2);
-		
-		List<HidukeForm> actual = userMapper.selectAllDate();
-		System.out.println(actual);
 	}
 	
 	@Test
@@ -81,7 +78,26 @@ class UserMapperTest {
 		
 		assertEquals("sample02", actual.getHidukeName());
 	}
+	@Test
+	@DatabaseSetup(value = "/testData/init-data/")
+	@ExpectedDatabase(value = "/testData/after-change-data/", table = "hiduke", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
+	void 変更_id1を変更する() {
+		
+		//テストデータ作成
+		HidukeForm changeOne = new HidukeForm();
+		
+		changeOne.setId(1);
+		changeOne.setHidukeId("change01");
+		changeOne.setHidukeName("change01");
+		changeOne.setCountYear(100);
+		changeOne.setCountMonth(200);
+		changeOne.setCountDay(300);
+		
+		userMapper.updateHiduke(changeOne);
+		
+	}
 	
+//	ログイン機能テスト
 	@Test
 	void ログインユーザー取得() {
 		
