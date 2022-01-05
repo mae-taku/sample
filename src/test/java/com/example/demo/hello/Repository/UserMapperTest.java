@@ -49,15 +49,16 @@ class UserMapperTest {
 	@DatabaseSetup(value = "/testData/init-data/")
 	@ExpectedDatabase(value = "/testData/after-create-data/", table = "hiduke", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
 	void 登録_id4で追加する() {
+
+		//テストデータ作成
+		HidukeForm newOne = new HidukeForm();
 		
-		HidukeForm newOne = HidukeForm.builder()
-				.hidukeId("test")
-				.hidukeName("test")
-				.countYear(10)
-				.countMonth(20)
-				.countDay(30)
-				.build();
-		
+		newOne.setHidukeId("test");
+		newOne.setHidukeName("test");
+		newOne.setCountYear(10);
+		newOne.setCountMonth(20);
+		newOne.setCountDay(30);
+
 		userMapper.insertHiduke(newOne);
 	}
 	
