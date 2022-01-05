@@ -61,6 +61,26 @@ class UserMapperTest {
 
 		userMapper.insertHiduke(newOne);
 	}
+	@Test
+	@DatabaseSetup(value = "/testData/init-data/")
+	@ExpectedDatabase(value = "/testData/after-create2-data/", table = "hiduke", assertionMode = DatabaseAssertionMode.NON_STRICT)
+	void id2番を削除後_新規登録したら_抜けた2番に新規が登録される(){
+		
+		//id2の登録を削除する
+		userMapper.deleteHiduke(2);
+
+		//テストデータ作成
+		HidukeForm newOne = new HidukeForm();
+		
+		newOne.setHidukeId("newOne");
+		newOne.setHidukeName("newOne");
+		newOne.setCountYear(100);
+		newOne.setCountMonth(100);
+		newOne.setCountDay(100);
+
+		userMapper.insertHiduke(newOne);
+
+	}
 	
 	@Test
 	@DatabaseSetup(value = "/testData/init-data/")
