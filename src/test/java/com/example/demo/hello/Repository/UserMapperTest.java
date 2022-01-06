@@ -85,9 +85,16 @@ class UserMapperTest {
 	@Test
 	@DatabaseSetup(value = "/testData/init-data/")
 	@ExpectedDatabase(value = "/testData/after-delete-data/", table = "hiduke", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
-	void 削除_id2を削除する() {
+	void id2を削除して_削除したid2を取得すると_nullが返ってくる() {
 		
+		//id2を消す
 		userMapper.deleteHiduke(2);
+		
+		//消したid2を取りに行く
+		HidukeForm actual = userMapper.selectHiduke(2);
+		
+		//返り値がnullであることを確認。
+		assertNull(actual);
 	}
 	
 	@Test
