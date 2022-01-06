@@ -3,6 +3,7 @@ package com.example.demo.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -10,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.hello.domain.user.MUser;
@@ -52,7 +54,7 @@ class UserDetailsServiceImplTest {
 //				() -> servise.loadUserByUsername("user01)"));
 //	}
 	
-	//Mockitoを使ってUserMapperをMock化することでUserDetailsServiceImplをテストする
+	/* Mockitoを使ってUserMapperをMock化することでUserDetailsServiceImplをテストする */
 	
 	// テスト対象のクラス内で呼び出すクラス（依存クラス）をモック化する
 	@Mock
@@ -70,7 +72,7 @@ class UserDetailsServiceImplTest {
 	}
 	
 	@Test
-	void 認証機能が動いているか(){
+	void ユーザーが存在するときにUserDetailsが返却されること(){
 		// テスト内容
 		
 		// Arrange(準備する)
@@ -79,12 +81,30 @@ class UserDetailsServiceImplTest {
 		user.setPassword("password");
 		user.setRole("ROLE_USER");
 		when(userService.getLoginUser("Tester")).thenReturn(user);
-//		userMapper.insertUser(user);
 		
 		// Act(実行する)
 		UserDetails actual = userDetailsServiceImpl.loadUserByUsername("Tester");
 		
 		// Assert(検証する)
 		assertEquals(user.getUserId(), actual.getUsername());
+	}
+	/* Mockito
+	 * 変数userにテストデータを格納
+	 * ”Tester”とログインしようとすると、変数userが返ってくる */
+	
+	@Test
+	void ユーザーが存在しないとき_例外にスローされる() throws Exception {
+		Assertions.assertThrows(UsernameNotFoundException.class, ()-> {
+
+			MUser user = new MUser();
+			user.setUserId("Tester");
+			user.setPassword("password");
+			user.setRole("ROLE_USER");
+			when(userService.getLoginUser("Tester")).thenReturn(user);
+			
+			//"Tester"と登録されているのに対し、"Toaseter"でログインしようとする
+			userDetailsServiceImpl.loadUserByUsername("Toaster");
+		});
+		
 	}
 }
