@@ -85,7 +85,7 @@ class UserMapperTest {
 	@Test
 	@DatabaseSetup(value = "/testData/init-data/")
 	@ExpectedDatabase(value = "/testData/after-delete-data/", table = "hiduke", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
-	void id2を削除した結果_想定DBとなることを() {
+	void id2を削除した結果_想定DBとなる() {
 
 		//id2を消す
 		userMapper.deleteHiduke(2);
