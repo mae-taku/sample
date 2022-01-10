@@ -17,48 +17,48 @@ import com.example.demo.hello.domain.user.entity.EmployeeId;
 import com.example.demo.hello.domain.user.service.IdsearchRequest;
 
 @Controller
-public class SearchController {
+public class EmployeeController {
 	
 	@Autowired
 	private HelloService service;
 	
 //	全件検索
-	@GetMapping("hello/employeeList")
+	@GetMapping("employee/employeeList")
 	public String top(Model m) {
 		List<EmployeeId>selectAll = service.selectAll();
 		m.addAttribute("selectAll", selectAll);
-		return "hello/employeeList";
+		return "employee/employeeList";
 	}
 	
 //	READ
 	//Mapper検索
-	@PostMapping("/hello/db2")
+	@PostMapping("/employee/db2")
 	public String postDbRequest1(@ModelAttribute IdsearchRequest idsearchRequest, Model model) {
 		//1件検索
 		EmployeeId idSearch = service.search(idsearchRequest);
 		//検索結果をModelに登録
 		model.addAttribute("searchOne", idSearch);
 		//db.htmlに画面遷移
-		return "hello/db2";
+		return "employee/db2";
 	}
 	//詳細画面遷移
 	@GetMapping("/show/{id}")
 	public String show(@PathVariable int id, Model model) {
 		EmployeeId selectOne = service.select(id);
 		model.addAttribute("selectOne", selectOne);
-		return "hello/employeeShow";
+		return "employee/employeeShow";
 		}
 
 //	CREAT
-	@GetMapping("hello/employeeForm") //list -> 登録画面
+	@GetMapping("employee/employeeForm") //list -> 登録画面
 	public String NewEmployee(Model m, @ModelAttribute EmployeeId n) {
 		//newボタンを押されるとここを通る
-		return "hello/employeeForm";
+		return "employee/employeeForm";
 	}
-	@PostMapping("hello/employeeForm") //CREATE処理
+	@PostMapping("employee/employeeForm") //CREATE処理
 	public String create(@ModelAttribute EmployeeId n) {
 		service.insert(n);
-		return "redirect:/hello/employeeList";
+		return "redirect:/employee/employeeList";
 		}
 	
 //	UODATE
@@ -66,20 +66,20 @@ public class SearchController {
 	public String change (@PathVariable int id, Model model) {
 		EmployeeId selectOne = service.select(id);
 		model.addAttribute("selectOne", selectOne);
-		return "hello/employeeChange";		
+		return "employee/employeeChange";		
 	}
 	
-	@PutMapping("/hello/employeeChange/{id}") //UPDATE処理
+	@PutMapping("/employee/employeeChange/{id}") //UPDATE処理
 	public String update (EmployeeId changeOne) {
 		service.update(changeOne);
-		return "redirect:/hello/employeeList";	
+		return "redirect:/employee/employeeList";	
 	}
 	
 //	DEALETE
 	@DeleteMapping("/delete/{id}/delete")
 	public String delete(@PathVariable int id) {
 		service.delete(id);
-		return "redirect:/hello/employeeList";	
+		return "redirect:/employee/employeeList";	
 	}
 	
 }
