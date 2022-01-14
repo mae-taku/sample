@@ -13,11 +13,4 @@ public class InputDateForm implements Serializable{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	public LocalDate inputDate;
 
-	public LocalDate plusYears(LocalDate Y, long countYear) {
-		LocalDate date = Y.plusYears(countYear);
-		// TODO 自動生成されたメソッド・スタブ
-		return date;
-	}
-	
-
 }
