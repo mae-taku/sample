@@ -86,7 +86,7 @@ class UserMapperTest {
 	@DatabaseSetup(value = "/testData/init-data/")
 	@ExpectedDatabase(value = "/testData/after-delete-data/", table = "hiduke", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
 	void id2がある時_id2を削除すると_id2がなくなる() {
-		
+		System.out.println("*** 削除メソッドテスト started. ***");
 		//id2があることを確認
 		HidukeForm actual = userMapper.selectHiduke(2);
 
@@ -97,7 +97,12 @@ class UserMapperTest {
 		HidukeForm expected = userMapper.selectHiduke(2);
 		
 		//消した結果、当初のデータと不一致になる
+		System.out.println("当初のデータ　" + actual);
+		System.out.println("削除後データ　" + expected);
+		
 		assertNotEquals(expected, actual);
+		
+		System.out.println("*** 削除メソッドテスト ended. ***");
 
 	}
 	
