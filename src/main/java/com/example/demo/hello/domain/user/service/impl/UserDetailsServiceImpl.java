@@ -36,7 +36,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 //		権限listの作成
 		GrantedAuthority authority = new SimpleGrantedAuthority(loginUser.getRole());
 		List<GrantedAuthority> authorities = Collections.singletonList(authority);
-//		authorities.add(authority);
 		
 //		UserDetails生成 
 		UserDetails userDetails = (UserDetails) new User(loginUser.getUserId(), loginUser.getPassword(), authorities);
