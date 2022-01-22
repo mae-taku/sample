@@ -21,7 +21,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: RaiseTech_db
           MYSQL_USER: user
-          MYSQL_PASSWORD: passw0rd
+          MYSQL_PASSWORD: look1990
       
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
