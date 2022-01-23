@@ -40,12 +40,6 @@ jobs:
             done
             echo Failed waiting for MySQL && exit 1
       - run:
-          name: MySQL CLI のインストール; ダミー データのインポート; サンプル クエリの実行
-          command: |
-            sudo apt-get install default-mysql-client
-            mysql -h 127.0.0.1 -u user -ppassw0rd RaiseTech_db < sql-data/dummy.sql
-            mysql -h 127.0.0.1 -u user -ppassw0rd --execute="SELECT * FROM RaiseTech_db.Persons"
-      - run:
           name: Build
           command: mvn -B -DskipTests clean package
       # Then run your tests!
