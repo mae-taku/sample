@@ -13,14 +13,13 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/openjdk:11.0
-        environment:
-          DB_HOST: 127.0.0.1
         
       - image: circleci/mysql:8.0.4
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # コンテキスト/プロジェクト UI 環境変数を参照します。
         environment:
+          DB_HOST: 127.0.0.1
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: RaiseTech_db
           MYSQL_USER: user
