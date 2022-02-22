@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layout">
+<meta charset="UTF-8">
+<title>従業員登録変更</title>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+    <h2>登録変更</h2>
+
+	<form th:method="put" th:action="@{/employee/employeeChange/{id}(id=*{id})}" th:object="${selectOne}">
+<!-- 		<input type="hidden" th:field="*{id}"> -->
+		<div class="mb-3">
+			<label for="name">名前</label>
+			<input type="text"  th:field="*{name}">
+		</div>
+		
+		<div class="mb-3">
+			<label for="age">年齢</label>
+			<input type="number" th:field="*{age}">
+			
+		</div>
+		<button>更新</button>
+	</form>
+	</div>
+</body>
+</html>

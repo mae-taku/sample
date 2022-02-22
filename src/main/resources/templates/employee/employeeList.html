@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8"></meta>
+<title>Employee List</title>
+</head>
+<body>
+	<h1>EmployeeList</h1>
+	<a th:href="@{/employee/employeeForm}">
+		<button>従業員登録</button>
+	</a>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th colspan="2">name</th>
+				<th>age</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- each;DBの情報をすべて出すまで繰り返す -->
+			<tr th:each="All : ${selectAll}" th:object="${All}">
+				<!-- 		 ${selectAll}から1件ずつ取り出し、All変数に格納。
+			th:object フォームにバインドするオブジェクトを設定。->オブジェクト名を省略できる。
+			使わない場合は、
+			<tr th:each="All : ${selectAll}">
+				<td th:text="${All.id}"></td> -->
+				<td th:text="*{id}"></td>
+				<td th:text="*{name}"></td>
+				<td th:text="*{age}"></td>
+				<td><a th:href="@{/show/{id}(id=*{id})}">
+						<button>詳細</button>
+				</a></td>
+				<td><a th:href="@{/change/{id}/change(id=*{id})}">
+						<button>変更</button>
+				</a></td>
+				<td><form th:action="@{/delete/{id}/delete(id=*{id})}" th:method="delete">
+						<button>削除</button>
+				</form></td>
+			</tr>
+		</tbody>
+	</table>
+	<form method="post" action="/hello/db2">
+		ID検索:<input type="text" name="id" th:object="${IdsearchRequest}" /> <input
+			type="submit" value="検索">
+	</form>
+</body>
+</html>
