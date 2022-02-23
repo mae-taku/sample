@@ -29,20 +29,27 @@ public class DateCalcService {
         ArrayList<HidukeOutForm> listForm = new ArrayList<HidukeOutForm>();//空のリストを作成
 
         for (int i = 0; i < list.size(); i++) {
-            HidukeOutForm outForm = new HidukeOutForm();//リストに格納する出力データフォーマットをインスタンス化。
+        	
+        	//リストに格納する出力データフォーマットをインスタンス化。
+            HidukeOutForm outForm = new HidukeOutForm();
+            
             //以下で、mapperリストの各データを出力フォーマットへ入れ替え。HidukeForm -> HidukeOutForm
     		outForm.setId(list.get(i).getId());
     		outForm.setHidukeId(list.get(i).getHidukeId());
     		outForm.setHidukeName(list.get(i).getHidukeName());
+    		
+    		//HidukeFormクラス内の"calcDate"メソッドで、countYear,countMonth,countDayをString型で合体させる。
     		outForm.setDate(list.get(i).calcDate());
 
-//    		LocalDate date = LocalDate.of(2021, 10, 7);//サンプルデータ ->入力値を入れるように変更予定
+    		//LocalDate date = LocalDate.of(2021, 10, 7);//サンプルデータ ->入力値を入れるように変更予定
 
-//    		計算処理ロジック。基準日にリストからとってきた加減値を足す。
+    		//計算処理ロジック。基準日にリストからとってきた加減値を足す。
     		LocalDate resultDate = date.plusYears(list.get(i).getCountYear())
     				.plusMonths(list.get(i).getCountMonth())
     				.plusDays(list.get(i).getCountDay());
-    		outForm.setResultDate(resultDate);//出力用フォーマットに計算結果を入れる。
+    		
+    		//出力用フォーマットに計算結果を入れる。
+    		outForm.setResultDate(resultDate);
     		
     		//出力データフォーマットをリストに格納。
     		listForm.add(outForm);

@@ -5,8 +5,10 @@ import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
 
+
 @Data
 public class HidukeForm {
+
 	private int id;
 	
 	@NotBlank //スペース含めて、空白×

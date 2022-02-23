@@ -43,7 +43,7 @@
 	</select>
 	<insert id="insertHiduke">
 		<!--insert前にテーブルから最小番号の検索をかけて、Entityにその値を入れる -->
-		<selectKey keyProperty="id" resultType="com.example.demo.hello.Form.HidukeForm" order="BEFORE">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
 		    SELECT MIN(id + 1) as id FROM hiduke 
 			WHERE
     		(id + 1) NOT IN (SELECT id FROM hiduke)

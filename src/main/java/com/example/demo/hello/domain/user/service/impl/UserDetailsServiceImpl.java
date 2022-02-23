@@ -1,6 +1,6 @@
 package com.example.demo.hello.domain.user.service.impl;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		
 //		権限listの作成
 		GrantedAuthority authority = new SimpleGrantedAuthority(loginUser.getRole());
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(authority);
+		List<GrantedAuthority> authorities = Collections.singletonList(authority);
 		
 //		UserDetails生成 
 		UserDetails userDetails = (UserDetails) new User(loginUser.getUserId(), loginUser.getPassword(), authorities);
