@@ -43,7 +43,7 @@ public class DateCalcController {
 		//System.out.println(date);
 		m.addAttribute("selectAll", selectAll);//一覧データを渡す
 		s.addAttribute("inputdate", date);//基準日データを渡す
-		return "dateCalc/dateList";
+		return "/dateCalc/dateList";
 	}
 //	CREAT
 	@GetMapping("dateCalc/dateForm") //list -> 登録画面
