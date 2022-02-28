@@ -33,7 +33,7 @@ public class DateCalcController {
 	}
 	
 //	計算処理及び一覧表示
-	@PostMapping("/dateCalc/dateList")	
+	@PostMapping("dateCalc/dateList")	
 	public String postdate(@ModelAttribute("inputDate") InputDateForm inputDate, Model m, Model s ) {
 
 		//画面入力データを、一度InputDateに格納。そして、計算処理の為に、LocalDate型で取り出す。
@@ -43,7 +43,7 @@ public class DateCalcController {
 		//System.out.println(date);
 		m.addAttribute("selectAll", selectAll);//一覧データを渡す
 		s.addAttribute("inputdate", date);//基準日データを渡す
-		return "dateCalc/dateList";
+		return "/dateCalc/dateList";
 	}
 //	CREAT
 	@GetMapping("dateCalc/dateForm") //list -> 登録画面
