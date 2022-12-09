@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8"></meta>
 <title>Employee List</title>
 </head>
 <body>
 	<h1>EmployeeList</h1>
-	<a th:href="@{/hello/employeeForm}">
+	<a th:href="@{/employee/employeeForm}">
 		<button>従業員登録</button>
 	</a>
 	<table border="1">
 		<thead>
 			<tr>
 				<th>id</th>
-				<th>name</th>
+				<th colspan="2">name</th>
 				<th>age</th>
 			</tr>
 		</thead>

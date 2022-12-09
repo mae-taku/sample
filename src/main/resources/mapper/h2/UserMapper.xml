@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- Mppperとxmlのマッピング -->
-<mapper namespace="com.example.demo.hello.UserMapper">
+<mapper namespace="com.example.demo.hello.Repository.UserMapper">
 	<!-- 全件取得 -->
 	<select id="selectAll"
 		resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
 		SELECT * FROM employee
 	</select>
-	<!-- ユーザー1件検索 -->
+	<!-- 従業員1件検索 -->
 	<select id="search"
 		resultType="com.example.demo.hello.domain.user.entity.EmployeeId">
 		SELECT * FROM employee WHERE id = #{id}
@@ -35,5 +35,48 @@
 		DELETE FROM employee
 		WHERE id = #{id}
 	</delete>
-
+	
+<!--日付計算アプリ -->
+	<select id="selectAllDate"
+		resultType="com.example.demo.hello.Form.HidukeForm">
+		SELECT * FROM hiduke
+	</select>
+	<insert id="insertHiduke">
+		<!--insert前にテーブルから最小番号の検索をかけて、Entityにその値を入れる -->
+		<selectKey keyProperty="id" resultType="com.example.demo.hello.Form.HidukeForm" order="BEFORE">
+		    SELECT MIN(id + 1) as id FROM hiduke 
+			WHERE
+    		(id + 1) NOT IN (SELECT id FROM hiduke)
+	  	</selectKey>
+		INSERT INTO hiduke(id,hiduke_id, hiduke_name, count_year, count_month, count_day)
+		values (#{id}, #{hidukeId}, #{hidukeName}, #{countYear}, #{countMonth}, #{countDay})
+	</insert>
+	<!-- 変更画面出力用 -->
+	<select id="selectHiduke"
+		resultType="com.example.demo.hello.Form.HidukeForm">
+		SELECT * FROM hiduke WHERE id = #{id}
+	</select>
+	<update id="updateHiduke">
+		UPDATE hiduke
+		SET hiduke_id = #{hidukeId}, hiduke_name = #{hidukeName}, count_year = #{countYear}, count_month = #{countMonth}, count_day = #{countDay}
+		WHERE id = #{id}
+	</update>
+	<delete id="deleteHiduke">
+		DELETE FROM hiduke
+		WHERE id = #{id}
+	</delete>
+	
+<!--ログイン機能 -->
+	<!-- ユーザー1件登録 -->
+	<insert id="insertUser"><!-- Insert時にIDは自動連番するため、Insert文からは控除する -->
+		INSERT INTO m_user(user_id, password, role)
+		values (#{userId}, #{password}, #{role})
+	</insert>
+<!--ログインユーザー情報取得 -->
+	<select id="findLoginUser"
+		resultType="com.example.demo.hello.domain.user.MUser">
+		SELECT * FROM m_user
+		WHERE user_id = #{userId}
+		
+	</select>
 </mapper>
